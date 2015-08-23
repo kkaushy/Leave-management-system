@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block script %}
+
+	<link rel="stylesheet" type="text/css" href= "{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap-theme.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+	<!-- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/> -->
+	<link rel="stylesheet" href="{% static 'bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css' %}"/>
+
+	<script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'bower_components/angular/angular.js' %}"></script>
+	<script type="text/javascript" src="{% static 'bower_components/angular-ui-router.js' %}"></script>
+	<script src="{% static 'bower_components/moment/moment.js' %}"></script>
+	<script src="{% static 'bower_components/angular-moment/angular-moment.js' %}"></script>
+	<script src="{% static 'bower_components/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+	<script src="{% static 'bower_components/angular-daterangepicker/js/angular-daterangepicker.js' %}"></script>
+
+	<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/factory.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/controller.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/constant.js' %}"></script>
+	
+	<script type="text/javascript">
+
+		$(document).ready(function(){			
+			// $("#myModal").modal({
+			// 	keyboard: false,
+			// });
+		});
+
+		lmsApp.config(function($httpProvider) {
+			$httpProvider.defaults.headers.post['X-CSRFToken'] = '{{csrf_token}}';
+		});
+
+	</script>
+{% endblock %}
+{% block style %}
+{% endblock %}	
+{% block navbar %}
+
+{% endblock %}
+
+{% block content%}
+	    
+
+	<div id="myModal" style="margin:20px auto; width:900px">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <nav class="navbar navbar-default">
+					  <div class="container-fluid">					    
+					      <ul class="nav navbar-nav">        
+					        <li><a ui-sref="main">Leave Balance</a></li>
+					        <li><a ui-sref="newLeave">New Leave</a></li> 
+					        <li><a ui-sref="memoirs">Memoirs</a></li> 
+					      </ul>					    
+					  </div>
+					</nav>	                
+	            </div>
+	            <div class="modal-body">
+	                <div ui-view></div>
+	            </div>
+	            <div class="modal-footer">
+	                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                <button type="button" class="btn btn-primary">Save changes</button> -->
+	            </div>
+	        </div>
+	    </div>
+	</div>
+{% endblock %}

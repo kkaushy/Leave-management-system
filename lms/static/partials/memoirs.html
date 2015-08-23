@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{title}}</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+          <tr>
+              <th>Request Id</th>
+              <th>Request Date</th>            
+              <th>Leave Type</th>
+              <th>Leave From</th>
+              <th>Leave To</th>
+              <th>Days</th>
+              <th>Authorizer</th>
+              <th>Status</th>
+              <th>Approver Comments</th>
+              <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="leave in appliedLeaves">
+              <td>{{leave.id}}</td>
+              <td>{{leave.request_date }}</td>            
+              <td>{{leaveTypes[leave.category] }}</td>
+              <td>{{leave.from_date}}</td>
+              <td>{{leave.to_date}}</td>
+              <td>{{leave.no_of_days }}</td>            
+              <td>{{employee.manager}}</td>
+              <td>{{leave.status }}</td>
+              <td>approver comment</td>
+              <td ng-click="cancelLeave(leave)">cancel</td>
+          </tr>
+        </tbody>    
+    </table>
+  </div>
+</div>
