@@ -6,3 +6,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+/*
+input.ng-invalid.ng-touched {
+	background-color: #FA787E;
+}
+
+input.ng-valid.ng-touched {
+	background-color: #78FA89;
+}*/
+
+.ng-invalid-required.ng-touched {
+	background-color: #FA787E;
+}
+
+

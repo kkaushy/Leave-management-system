@@ -22,7 +22,14 @@ lmsApp.controller("newLeaveCtrl", function($scope, empId, leaveFactory, category
 	$scope.data = "new leave";
 	$scope.title = "New Leave";
 	$scope.now = moment().format('DD-MM-YYYY');
-	$scope.date = {startDate: moment(), endDate: moment()};
+	$scope.date = {
+		startDate: moment(),
+		endDate: moment()
+	};
+	$scope.leave = {
+		no_of_days:0
+	};
+
 	$scope.opts  = {
 		"autoApply": true,
 		"showDropdowns": true,
@@ -37,6 +44,8 @@ lmsApp.controller("newLeaveCtrl", function($scope, empId, leaveFactory, category
 
 	categoryFactory.getCategories().then(function(response){
 		$scope.leaveTypes = response.data;
+		$scope.leave.category = $scope.leaveTypes[0].value;
+		console.log($scope.leaveTypes);
 	});
 
 	employeeFactory.getEmployee(empId).then(function(response){

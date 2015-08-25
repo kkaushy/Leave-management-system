@@ -151,6 +151,6 @@ class CategoryList(APIView):
     List all employees, or create a new employee.
     """
     def get(self, request, format=None):
-        # import json
-        LEAVE_CHOICES = dict(Category.LEAVE_CHOICES)    
+        
+        LEAVE_CHOICES = [{"value":value,"name":name} for value,name in Category.LEAVE_CHOICES]        
         return Response(LEAVE_CHOICES)

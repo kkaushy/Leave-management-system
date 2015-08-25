@@ -18,7 +18,7 @@ class Category():
 	LEAVE_CHOICES = (
 		(EARNED_LEAVE, 'Earned Leave'),
 		(SICK_LEAVE, 'Sick Leave'),
-		(COMPENSATORY_LEAVE, 'Compensatroy Leave'),
+		(COMPENSATORY_LEAVE, 'Compensatory Leave'),
 		(LEAVE_WITHOUT_PAY, 'Leave Without Pay '),
 		(HOLIDAY_WORKED, 'Holiday Worked'),
 		(PAID_TIME_OFF, 'Paid Time Off'),

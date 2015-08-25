@@ -4,47 +4,56 @@
   </div>
   <div class="panel-body">
     <div class="row">
-    	<form role="form">
+    	<form role="form" name="frmNewLeave" novalidate>
 	  		<div class="col-lg-6">	  	
 			  <div class="form-group">
 			    <label for="location">Location:</label>
-			    <select id="location" ng-model='employee.location' class="form-control input-normal">
+			    <select id="location" ng-model='employee.location' class="form-control input-normal" required>
 			    	<option value="Pune">Pune</option>
 			    	<option value="Chennai">Chennai</option>
 			    </select>
 			  </div>
 			  <div class="form-group">
 			    <label for="leaveType">Leave Type:</label>
-			    <select id="leaveType" ng-model='leave.category' class="form-control input-normal">
-			    	<option ng-repeat="(key, leaveType) in leaveTypes" value='{{key}}'>{{leaveType}}</option>
+			    <select id="leaveType" ng-model='leave.category' class="form-control input-normal"
+			    ng-init = "leave.category = leaveTypes[0]"
+			    ng-options="leave.value as leave.name for leave in leaveTypes">	    	
+			    	
 			    </select>
+			    <!-- <option ng-repeat="(key, leaveType) in leaveTypes" value='{{key}}'>{{leaveType}}</option> -->
 			  </div>			  
 			  <div class="form-group">
-			    <label for="fromDate">Leave Date:</label>			    			    
-			    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" options="opts" class="form-control input-normal"/>				
+			    <label for="fromDate">Leave Date1:</label>			    			    
+			    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" options="opts" class="form-control input-normal" ng-readonly="true"/>				
 			  </div>
 			   <div class="form-group">
 			    <label for="noOfDays">No of days:</label>
-			    <input type="text" id="noOfDays" value ='{{leave.NoOfDays}}' ng-model='leave.no_of_days' class="form-control input-normal">			    
+			    <input type="text" id="noOfDays" ng-model='leave.no_of_days' class="form-control input-normal" ng-readonly="true">
 			    <label for="requestDate">Request Date:</label>
-			    <input type="text" id="requestDate" ng-init="leave.request_date = now" ng-model='leave.request_date' class="form-control input-normal">
+			    <input type="text" id="requestDate" ng-init="leave.request_date = now" ng-model='leave.request_date' class="form-control input-normal" ng-readonly="true">
 			  </div>
 	  		</div>
 	  		<div class="col-lg-6">
 	  			<div class="form-group">
 				    <label for="authorizer">Authorizer:</label>
-				    <input type="text" ng-model="employee.manager" class="form-control input-normal">
+				    <input type="text" ng-model="employee.manager" class="form-control input-normal" ng-readonly="true">
 				</div>
 				<div class="form-group">
 				    <label for="contact">Contact details:</label>
-				    <input type="text" id="contact" ng-model="leave.contact_details" class="form-control input-normal">
+				    <input type="text" id="contact" name="contact" ng-model="leave.contact_details" class="form-control input-normal" required>
+					<div ng-show="frmNewLeave.$submitted || frmNewLeave.contact.$touched">
+						<div ng-show="frmNewLeave.contact.$error.required">Please enter contact details.</div>
+					</div>
 				</div>
 				<div class="form-group">
 				    <label for="reason">Reason:</label>
-				    <textarea id="reason" ng-model="leave.reason" class="form-control input-normal"></textarea>
+				    <textarea id="reason" name="reason" ng-model="leave.reason" class="form-control input-normal" required></textarea>
+				    <div ng-show="frmNewLeave.$submitted || frmNewLeave.reason.$touched">
+						<div ng-show="frmNewLeave.reason.$error.required">Please enter reason.</div>
+					</div>
 			  	</div>			  
 			  	<div class="form-group">
-	  				<button ng-click="saveLeave()" class="btn btn-default">Submit</button>
+			  		<input type="submit" value="Submit" ng-click="saveLeave()" class="btn btn-default">	  				
 	  			</div>
 	  		</div>	  		
 	  </form>
