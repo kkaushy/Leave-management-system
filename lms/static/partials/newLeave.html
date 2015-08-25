@@ -8,47 +8,45 @@
 	  		<div class="col-lg-6">	  	
 			  <div class="form-group">
 			    <label for="location">Location:</label>
-			    <select id="location" ng-model='employee.location'>
+			    <select id="location" ng-model='employee.location' class="form-control input-normal">
 			    	<option value="Pune">Pune</option>
 			    	<option value="Chennai">Chennai</option>
 			    </select>
 			  </div>
 			  <div class="form-group">
 			    <label for="leaveType">Leave Type:</label>
-			    <select id="leaveType" ng-model='leave.category'>
+			    <select id="leaveType" ng-model='leave.category' class="form-control input-normal">
 			    	<option ng-repeat="(key, leaveType) in leaveTypes" value='{{key}}'>{{leaveType}}</option>
 			    </select>
 			  </div>			  
 			  <div class="form-group">
 			    <label for="fromDate">Leave Date:</label>			    			    
-			    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" options="opts"/>
-				
+			    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" options="opts" class="form-control input-normal"/>				
 			  </div>
 			   <div class="form-group">
 			    <label for="noOfDays">No of days:</label>
-			    <input type="text" id="noOfDays" value ='{{leave.NoOfDays}}' ng-model='leave.no_of_days'>			    
+			    <input type="text" id="noOfDays" value ='{{leave.NoOfDays}}' ng-model='leave.no_of_days' class="form-control input-normal">			    
 			    <label for="requestDate">Request Date:</label>
-			    <input type="text" id="requestDate" ng-init="leave.request_date = now" ng-model='leave.request_date'>
+			    <input type="text" id="requestDate" ng-init="leave.request_date = now" ng-model='leave.request_date' class="form-control input-normal">
 			  </div>
 	  		</div>
 	  		<div class="col-lg-6">
 	  			<div class="form-group">
 				    <label for="authorizer">Authorizer:</label>
-				    <input type="text" ng-model="employee.manager">
+				    <input type="text" ng-model="employee.manager" class="form-control input-normal">
 				</div>
 				<div class="form-group">
 				    <label for="contact">Contact details:</label>
-				    <input type="text" id="contact" ng-model="leave.contact_details">
+				    <input type="text" id="contact" ng-model="leave.contact_details" class="form-control input-normal">
 				</div>
 				<div class="form-group">
 				    <label for="reason">Reason:</label>
-				    <textarea id="reason" ng-model="leave.reason"></textarea>
+				    <textarea id="reason" ng-model="leave.reason" class="form-control input-normal"></textarea>
 			  	</div>			  
 			  	<div class="form-group">
-	  				<button ng-click="saveLeave()">Submit</button>
+	  				<button ng-click="saveLeave()" class="btn btn-default">Submit</button>
 	  			</div>
-	  		</div>
-	  		
+	  		</div>	  		
 	  </form>
 	</div>
   </div>

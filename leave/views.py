@@ -152,6 +152,5 @@ class CategoryList(APIView):
     """
     def get(self, request, format=None):
         # import json
-        LEAVE_CHOICES = dict(Category.LEAVE_CHOICES)
-        print LEAVE_CHOICES        
+        LEAVE_CHOICES = dict(Category.LEAVE_CHOICES)    
         return Response(LEAVE_CHOICES)
