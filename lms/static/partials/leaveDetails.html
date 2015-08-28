@@ -13,11 +13,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="(key, leave) in leaveTypes">
-              <td>{{leave}}</td>
-              <td>{{leaveDetails[key].availed || 0 }}</td>            
-              <td>{{leaveDetails[key].carry_forward || 0 }}</td>
-              <td>{{leaveDetails[key].balance || 0 }}</td>
+          <tr ng-repeat="leave in leaveTypes">
+              <td>{{leave.name}}</td>
+              <td>{{leaveDetails[leave.value].availed || 0 }}</td>            
+              <td>{{leaveDetails[leave.value].carry_forward || 0 }}</td>
+              <td>{{leaveDetails[leave.value].balance || 0 }}</td>
           </tr>
         </tbody>    
     </table>

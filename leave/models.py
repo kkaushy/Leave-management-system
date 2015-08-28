@@ -60,7 +60,7 @@ class Leave(models.Model):
 	status = models.IntegerField(choices=STATUS)
 
 	def __unicode__(self):
-		return str(self.employee)+"__"+self.category
+		return str(self.employee)+"__"+self.category+"__"+str(self.id)
 
 
 class LeaveBalance(models.Model):

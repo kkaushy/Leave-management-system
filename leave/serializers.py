@@ -9,8 +9,12 @@ class EmployeeSerializer(serializers.ModelSerializer):
         # fields = ('id', 'title', 'code', 'linenos', 'language', 'style')
 
 class LeaveSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Leave
+	
+	# to_date = serializers.WritableField(source='endDate', required=True)
+	# from_date = serializers.WritableField(source='startDate', required=True)
+    
+	class Meta:
+		model = Leave
 
 
 class LeaveBalanceSerializer(serializers.ModelSerializer):

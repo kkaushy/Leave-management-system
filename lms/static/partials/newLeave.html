@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <div class="row">
-    	<form role="form" name="frmNewLeave" novalidate>
+    	<form role="form" name="frmNewLeave" novalidate ng-submit="saveLeave()">
 	  		<div class="col-lg-6">	  	
 			  <div class="form-group">
 			    <label for="location">Location:</label>
@@ -16,15 +16,14 @@
 			  <div class="form-group">
 			    <label for="leaveType">Leave Type:</label>
 			    <select id="leaveType" ng-model='leave.category' class="form-control input-normal"
-			    ng-init = "leave.category = leaveTypes[0]"
-			    ng-options="leave.value as leave.name for leave in leaveTypes">	    	
-			    	
+			    	ng-init = "leave.category = leaveTypes[0]"
+			    	ng-options="leave.value as leave.name for leave in leaveTypes">			    	
 			    </select>
 			    <!-- <option ng-repeat="(key, leaveType) in leaveTypes" value='{{key}}'>{{leaveType}}</option> -->
 			  </div>			  
 			  <div class="form-group">
-			    <label for="fromDate">Leave Date1:</label>			    			    
-			    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" options="opts" class="form-control input-normal" ng-readonly="true"/>				
+			    <label for="fromDate">Leave Date:</label>			    			    
+			    <input date-range-picker class="form-control date-picker" type="text" ng-model="leave.date" options="opts" class="form-control input-normal" ng-readonly="true"/>				
 			  </div>
 			   <div class="form-group">
 			    <label for="noOfDays">No of days:</label>
@@ -53,7 +52,7 @@
 					</div>
 			  	</div>			  
 			  	<div class="form-group">
-			  		<input type="submit" value="Submit" ng-click="saveLeave()" class="btn btn-default">	  				
+			  		<input type="submit" value="Submit" class="btn btn-default pull-right" ng-disabled="!frmNewLeave.$valid">
 	  			</div>
 	  		</div>	  		
 	  </form>

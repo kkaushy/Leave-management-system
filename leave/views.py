@@ -94,7 +94,7 @@ class LeaveDetail(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, format=None):
-        print "delete",pk
+            
         leave = Leave.objects.get(pk=pk)
         leave.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
